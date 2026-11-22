@@ -317,7 +317,7 @@ public class main {
     }
 
 
-    // transforma o texto da nota em double na mao
+    // transforma o texto da nota em double
     private static double converterNota(
         char[] texto,
         int tamanho
