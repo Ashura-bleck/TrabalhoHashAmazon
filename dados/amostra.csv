@@ -1,0 +1,10 @@
+
+Id,Title,Price,User_id,profileName,review/helpfulness,review/score,review/time,review/summary,review/text
+B001,"Dune, edição especial",12.5,U001,"Maria, a leitora",3/4,5.0,1700000000,"Gostei","Muito bom, gostei."
+B002,"Fundação ""Original""",,U002,,1/2,4.5,1700000001,"Excelente","Texto com ""aspas"" e vírgula, perfeito."
+B003,Livro sem usuário,,,Perfil sem ID,,4.0,1700000002,"Resumo","Texto"
+B004,,12.0,U004,Joao,,4.0,1700000003,"Resumo","Sem título"
+B005,Titulo nota invalida,,U005,Ana,,6.0,1700000004,"Resumo","Nota fora do intervalo"
+B006,Livro sem perfil,,U006,,4/5,3.0,1700000005,"Resumo","Perfil vazio, mas deve ser aceito"
+B007,Texto multilinha,,U007,Carlos,,4.0,1700000006,"Resumo","Primeira linha
+segunda linha, com vírgula"
