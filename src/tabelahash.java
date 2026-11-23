@@ -6,6 +6,12 @@ public class tabelahash {
 
     private int tipofuncao;
 
+    private int totalcolisoes;
+    private int totalsondagensinsercao;
+    private int totalsondagensbuscasucesso;
+    private int totalsondagensbuscafalha;
+    private int piorcaso;
+
     public tabelahash(int tipofuncaorecebida) {
 
         tabela = new nohash[capacidade];
@@ -86,8 +92,12 @@ public class tabelahash {
 
         nohash atual = tabela[posicao];
 
+        int sondagensoperacao = 0;
+
         // verifica se a chave ja existe
         while (atual != null) {
+
+            sondagensoperacao++;
 
             if (comparchave(
                 atual.chave,
@@ -96,10 +106,24 @@ public class tabelahash {
                 tamanho
             ) == 1) {
 
+                totalsondagensinsercao += sondagensoperacao;
+
+                if (sondagensoperacao > piorcaso) {
+
+                    piorcaso = sondagensoperacao;
+                }
+
                 return -1;
             }
 
             atual = atual.proximo;
+        }
+
+        totalsondagensinsercao += sondagensoperacao;
+
+        if (sondagensoperacao > piorcaso) {
+
+            piorcaso = sondagensoperacao;
         }
 
         int colisao = 0;
@@ -107,6 +131,8 @@ public class tabelahash {
         if (tabela[posicao] != null) {
 
             colisao = 1;
+
+            totalcolisoes++;
         }
 
         // cria novo no e insere no inicio da lista
@@ -134,7 +160,11 @@ public class tabelahash {
 
         nohash atual = tabela[posicao];
 
+        int sondagensoperacao = 0;
+
         while (atual != null) {
+
+            sondagensoperacao++;
 
             if (comparchave(
                 atual.chave,
@@ -143,12 +173,46 @@ public class tabelahash {
                 tamanho
             ) == 1) {
 
+                totalsondagensbuscasucesso += sondagensoperacao;
+
+                if (sondagensoperacao > piorcaso) {
+
+                    piorcaso = sondagensoperacao;
+                }
+
                 return 1;
             }
 
             atual = atual.proximo;
         }
 
+        totalsondagensbuscafalha += sondagensoperacao;
+
+        if (sondagensoperacao > piorcaso) {
+
+            piorcaso = sondagensoperacao;
+        }
+
         return 0;
+    }
+
+    public int obterTotalColisoes() {
+        return totalcolisoes;
+    }
+
+    public int obterTotalSondagensInsercao() {
+        return totalsondagensinsercao;
+    }
+
+    public int obterTotalSondagensBuscaSucesso() {
+        return totalsondagensbuscasucesso;
+    }
+
+    public int obterTotalSondagensBuscaFalha() {
+        return totalsondagensbuscafalha;
+    }
+
+    public int obterPiorCaso() {
+        return piorcaso;
     }
 }
