@@ -1,6 +1,6 @@
 import java.io.IOException;
-
-public class main {
+// funciona apenas para textes do leitor
+public class teste_leitorcsv {
 
     // nomes esperados no cabecalho
     private static final char[] cabecalho_titulo =

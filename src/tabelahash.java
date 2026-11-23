@@ -31,7 +31,7 @@ public class tabelahash {
 
         if (tipofuncao == 1) {
 
-            return funchash.Fnv1a(chave, tamanho);
+            return funchash.fnv1a(chave, tamanho);
 
         } else if (tipofuncao == 2) {
 
@@ -83,7 +83,7 @@ public class tabelahash {
     // -1 = chave existente ou tamanho invalido
     public int inserir(char[] chave, int tamanho) {
 
-        if (tamanho < 0) {
+        if (tamanho <= 0) {
 
             return -1;
         }
@@ -151,7 +151,7 @@ public class tabelahash {
     // 0 = nao encontrou
     public int buscar(char[] chave, int tamanho) {
 
-        if (tamanho < 0) {
+        if (tamanho <= 0) {
 
             return 0;
         }
